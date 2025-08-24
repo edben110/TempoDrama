@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>TempoDrama</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>TempoDrama</h1>
+
+  <!-- Entradas de tiempo -->
+  <div class="time-inputs">
+    <label>Horas:
+      <input type="number" id="horas" value="0" min="0">
+    </label>
+    <label>Min:
+      <input type="number" id="minutos" value="0" min="0" max="59">
+    </label>
+    <label>Seg:
+      <input type="number" id="segundos" value="0" min="0" max="59">
+    </label>
+  </div>
+
+  <!-- Display del temporizador -->
+  <div id="timerDisplay">00:00:00</div>
+
+  <!-- Botones del temporizador -->
+  <div>
+    <button id="start">Iniciar</button>
+    <button id="pause">Pausar</button>
+    <button id="resume">Continuar</button>
+    <button id="reset">Reiniciar</button>
+  </div>
+
+  <h2>Canciones</h2>
+  <!-- Subida de canciones -->
+  <label for="fileInput" class="custom-file-btn">Subir canciones</label>
+  <input type="file" id="fileInput" accept="audio/*" multiple hidden>
+
+  <!-- Lista de canciones -->
+  <ul id="songList"></ul>
+
+  <!-- Modos -->
+  <div class="radio-group">
+    <input type="radio" id="modeBefore" name="mode" value="before" checked hidden>
+    <label for="modeBefore" class="custom-radio">Reproducción Dramatica</label>
+
+    <input type="radio" id="modeEnd" name="mode" value="end" hidden>
+    <label for="modeEnd" class="custom-radio">Reproduccion PostTemporizador</label>
+  </div>
+
+  <!-- Reproductor de audio oculto -->
+  <audio id="audioPlayer"></audio>
+
+  <!-- Controles personalizados -->
+  <div class="audio-bar">
+    <button id="playPause">▶</button>
+    <input type="range" id="seekBar" value="0" step="1">
+    <span id="timeDisplay">00:00 / 00:00</span>
+    <input type="range" id="volumeBar" min="0" max="1" step="0.01" value="1">
+  </div>
+
+  <script src="script.js"></script>
+  <h3 style="color: rgba(0,0,0,0.1);">Made by edben</h3>
+</body>
+<footer></footer>
+</html>
