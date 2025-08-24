@@ -1,8 +1,5 @@
 {
-  "builds": [
-    { "src": "TempoDrama/index.html", "use": "@vercel/static" }
-  ],
   "routes": [
-    { "src": "/(.*)", "dest": "/TempoDrama/index.html" }
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
