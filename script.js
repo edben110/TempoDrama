@@ -1,6 +1,3 @@
-/* =======================
-   Variables principales
-========================= */
 const audio = document.getElementById("audioPlayer");
 const playPauseBtn = document.getElementById("playPause");
 const seekBar = document.getElementById("seekBar");
@@ -13,9 +10,7 @@ const songList = document.getElementById("songList");
 
 let db;
 
-/* =======================
-   Inicializar IndexedDB
-========================= */
+/*Init Index*/
 const request = indexedDB.open("MiReproductorDB", 1);
 
 request.onupgradeneeded = function (event) {
@@ -34,9 +29,7 @@ request.onerror = function (event) {
   console.error("Error al abrir IndexedDB", event.target.error);
 };
 
-/* =======================
-   Player Control
-========================= */
+/*player controler*/
 playPauseBtn.addEventListener("click", () => {
   if (audio.paused) {
     audio.play();
@@ -72,9 +65,7 @@ function formatTime(seconds) {
   return `${min}:${sec}`;
 }
 
-/* =======================
-   Temporizador
-========================= */
+/*Temporizer*/
 function startTimer() {
   if (isPaused) return;
   const horas = +document.getElementById("horas").value || 0;
@@ -138,9 +129,7 @@ function formatTimeHMS(seconds) {
   return `${hrs}:${mins}:${secs}`;
 }
 
-/* =======================
-   Canciones con IndexedDB
-========================= */
+/*Indexed DB*/
 document.getElementById("fileInput").addEventListener("change", (event) => {
   const files = Array.from(event.target.files);
   files.forEach(file => {
@@ -230,10 +219,7 @@ function playSong(song) {
   audio.src = song.url;
   audio.play();
 }
-
-/* =======================
-   Botones de control
-========================= */
+/*Control Buttons*/
 document.getElementById("start").addEventListener("click", startTimer);
 document.getElementById("pause").addEventListener("click", pauseTimer);
 document.getElementById("resume").addEventListener("click", resumeTimer);
